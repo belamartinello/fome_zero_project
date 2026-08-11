@@ -184,6 +184,6 @@ with st.container():
         st.plotly_chart(fig, use_container_width=True)
     with col2:
         st.markdown('**Média de Preço de um prato para duas pessoas por País (US$)**')
-        df_aux = df1.loc[ :, ['Country Name', 'Average Cost for two (USD)']].groupby('Country Name').mean().reset_index().sort_values(by='Average Cost for two (USD)', ascending=False).round(2)
+        df_aux = df1.loc[df1['Restaurant ID'] != 16608070, ['Country Name', 'Average Cost for two (USD)']].groupby('Country Name').mean().reset_index().sort_values(by='Average Cost for two (USD)', ascending=False).round(2)
         fig = px.bar(df_aux, x = df_aux['Country Name'], y = 'Average Cost for two (USD)', text = 'Average Cost for two (USD)', labels = {'Country Name': 'Países', 'Average Cost for two (USD)': 'Custo Médio para Dois'})
         st.plotly_chart(fig, use_container_width=True)
