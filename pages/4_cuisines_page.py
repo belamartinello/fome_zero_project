@@ -366,7 +366,7 @@ with st.container():
         df_aux['Aggregate rating'] = df_aux['Aggregate rating'].round(2)
         
         fig = px.bar(df_aux.head(top_n), x='Cuisines', y='Aggregate rating', text = 'Aggregate rating', labels={'Cuisines': 'Tipos de Culinária', 'Aggregate rating': 'Média de Avaliações'})
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="grafico_melhores_culinarias")
     with col2:
         st.markdown(f'**Top {top_n} Piores Tipos de Culinárias**')
         df_aux = (
@@ -379,5 +379,5 @@ with st.container():
         df_aux['Aggregate rating'] = df_aux['Aggregate rating'].round(2)
         
         fig = px.bar(df_aux.head(top_n), x='Cuisines', y='Aggregate rating', text = 'Aggregate rating', labels={'Cuisines': 'Tipos de Culinária', 'Aggregate rating': 'Média de Avaliações'})
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, key="grafico_piores_culinarias")
         
